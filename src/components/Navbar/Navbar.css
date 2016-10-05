@@ -1,9 +1,10 @@
-.navbar-default {
-    background-color: #2893FC;
-    background-image: none;
-    height: 40px;
+.myNavbar {
+    font-weight: 300
 }
 
-.navbar .navbar-brand {
-    color: #ffffff
+.myNavbar .myNavbar-brand {
+    background-color: #2893FC;
+    color: white;
+    height: 46px;
+    font-size: 1.5em;
 }

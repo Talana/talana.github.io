@@ -1,3 +1,25 @@
-.sidebar {
-    width: 400px;
+.sidebar: {
+  width: 256px;
+  height: 100%;
+  background-color: red;
+
+}
+
+.divider: {
+  margin: 8px 0;
+  height: 1;
+  background-color: #757575;
+}
+
+.content: {
+  height: 100%;
+  padding: 16px;
+  background-color: white;
+}
+
+.sidebarLink {
+  display: block;
+  padding: 16px 0px;
+  color: #757575;
+  text-decoration: none;
 }
