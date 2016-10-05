@@ -1,5 +1,6 @@
-.navbar {
+.navbar-default {
     background-color: #2893FC;
+    background-image: none;
     height: 40px;
 }
 

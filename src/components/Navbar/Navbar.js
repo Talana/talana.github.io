@@ -13,7 +13,7 @@ class NavbarComp extends React.Component {
 
   render() {
     return (
-      <Navbar className="myNavbar">
+      <Navbar>
         <Navbar.Header>
             <Navbar.Brand>
                 <a href="#">Talana</a>
