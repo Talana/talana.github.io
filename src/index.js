@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import BootstrapApp from './BootstrapApp';
-import DragulaApp from './dragula/DragulaApp';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import './index.css';
+import App from './App/App';
 
 ReactDOM.render(
-  <DragulaApp />,
+  <App />,
   document.getElementById('root')
 );

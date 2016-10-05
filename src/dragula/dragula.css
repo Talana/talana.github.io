@@ -21,12 +21,6 @@
   filter: alpha(opacity=20);
 }
 
-body {
-  background-color: #942A57;
-  margin: 0 auto;
-  max-width: 760px;
-}
-
 html, body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -39,38 +33,11 @@ html, body {
   box-sizing: inherit;
 }
 
-body, input, button {
-  font-family: Georgia, Helvetica;
-  font-size: 17px;
-  color: #ecf0f1;
-}
-
-h1 {
-  text-align: center;
-  background-color: #AC5C7E;
-  margin-top: 20px;
-  margin-bottom: 0;
-  padding: 10px;
-}
-
-h3 {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-bottom: 5px solid #A13462;
-  text-align: center;
-  padding: 10px;
-}
-
-h3 div {
-  margin-bottom: 10px;
-}
 
 .tagline {
   margin-top: 0;
 }
 
-a {
-  font-weight: bold;
-}
 a,
 a:hover {
   color: #ecf0f1;
@@ -148,33 +115,32 @@ button:hover {
 .wrapper {
   display: table;
 }
-.container {
-  display: block;
-  width: 100%;
+.dragula-section {
+  /* display: block; */
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.2);
 }
-.container:nth-child(odd) {
+.dragula-section:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.2);
 }
 /*
  * note that styling gu-mirror directly is a bad practice because it's too generic.
  * you're better off giving the draggable elements a unique class and styling that directly!
  */
-.container div,
+.dragula-section div,
 .gu-mirror {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 0.4s ease-in-out;
 }
-.container div {
+.dragula-section div {
   cursor: move;
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
   margin-bottom: 10px;
 }
-.container div:last-child {
+.dragula-section div:last-child {
   margin-bottom: 0;
 }
 .gu-mirror {
@@ -182,15 +148,13 @@ button:hover {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 }
-.container .ex-moved {
-  background-color: #e74c3c;
-}
-.container.ex-over {
+
+.dragula-section.ex-over {
   background-color: rgba(255, 255, 255, 0.3);
 }
-.handle {
+/* .handle {
   padding: 0 5px;
   margin-right: 5px;
   background-color: rgba(0, 0, 0, 0.4);
   cursor: move;
-}
+} */
