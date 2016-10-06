@@ -50,21 +50,21 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.draggableContent div,
+.draggableContent .draggable,
 .gu-mirror {
   padding: 10px;
   /* background-color: rgba(0, 0, 0, 0.2); */
   transition: opacity 0.4s ease-in-out;
 }
 
-.draggableContent div {
+.draggableContent .draggable {
   cursor: move;
   cursor: -moz-grab;
   cursor: -webkit-grab;
   margin-bottom: 10px;
 }
 
-.draggableContent div:last-child {
+.draggableContent .draggable:last-child {
   margin-bottom: 0;
 }
 

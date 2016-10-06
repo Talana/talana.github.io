@@ -1,5 +1,5 @@
 import React from 'react';
-import Draggable from '../Draggable/Draggable';
+import DraggableArea from '../Draggable/Draggable';
 import { Grid } from 'react-bootstrap';
 import './canvas.css';
 
@@ -9,7 +9,7 @@ class Canvas extends React.Component {
     return (
       <div className="content">
         <Grid>
-          <Draggable/>
+          <DraggableArea/>
         </Grid>
       </div>
     );
