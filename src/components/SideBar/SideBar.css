@@ -1,17 +1,17 @@
-.sidebar: {
+.sidebar {
   width: 256px;
   height: 100%;
   background-color: red;
 
 }
 
-.divider: {
+.divider {
   margin: 8px 0;
-  height: 1;
+  height: 1px;
   background-color: #757575;
 }
 
-.content: {
+.content {
   height: 100%;
   padding: 16px;
   background-color: white;

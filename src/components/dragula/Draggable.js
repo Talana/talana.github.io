@@ -6,7 +6,7 @@ import './draggable.css';
 export class DragulaComp extends React.Component {
   render () {
     return (
-        <div className="row dragula-section draggable draggableArea" ref={this.dragulaDecorator}>
+        <div className="row dragula-section draggableArea" ref={this.dragulaDecorator}>
           <Col xs={2} className="draggable">Swap item #1</Col>
           <Col xs={2} className="draggable">Swap item #2</Col>
           <Col xs={2} className="draggable">Swap item #3</Col>
@@ -15,7 +15,6 @@ export class DragulaComp extends React.Component {
           <Col xs={2} className="draggable">Swap item #6</Col>
         </div>
       );
-
   }
 
   dragulaDecorator = (componentBackingInstance) => {

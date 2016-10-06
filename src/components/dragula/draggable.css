@@ -6,15 +6,18 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
 }
+
 .gu-hide {
   display: none !important;
 }
+
 .gu-unselectable {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
   -ms-user-select: none !important;
   user-select: none !important;
 }
+
 .gu-transit {
   opacity: 0.2;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
@@ -32,38 +35,39 @@
   border: 0;
 }
 
-/* dragula-specific example page styles */
 .wrapper {
   display: table;
 }
+
 .dragula-section {
   display: block;
   padding: 10px;
   background-color: rgba(255, 255, 255, 1.0);
 }
+
 .dragula-section:nth-child(odd) {
   /* border: 1px #ff9900; */
   background-color: rgba(0, 0, 0, 0.2);
 }
-/*
- * note that styling gu-mirror directly is a bad practice because it's too generic.
- * you're better off giving the draggable elements a unique class and styling that directly!
- */
+
 .dragula-section div,
 .gu-mirror {
   padding: 10px;
   /* background-color: rgba(0, 0, 0, 0.2); */
   transition: opacity 0.4s ease-in-out;
 }
+
 .dragula-section div {
   cursor: move;
   cursor: -moz-grab;
   cursor: -webkit-grab;
   margin-bottom: 10px;
 }
+
 .dragula-section div:last-child {
   margin-bottom: 0;
 }
+
 .gu-mirror {
   cursor: grabbing;
   cursor: -moz-grabbing;
@@ -77,5 +81,4 @@
 .draggable {
   background: #ff9900;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-  /* border: 1px solid lightGrey; */
 }
