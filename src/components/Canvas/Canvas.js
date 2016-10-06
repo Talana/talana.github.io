@@ -1,7 +1,7 @@
 import React from 'react';
-import Draggable from '../dragula/Draggable';
+import Draggable from '../Draggable/Draggable';
 import { Grid } from 'react-bootstrap';
-import './Canvas.css';
+import './canvas.css';
 
 class Canvas extends React.Component {
   render() {
