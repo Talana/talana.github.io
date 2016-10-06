@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
-import { Grid } from 'react-bootstrap';
-import DragulaComp from '../dragula/DragulaApp';
-import NavbarComp from '../components/Navbar/Navbar';
+import React from 'react';
+import Sidebar from 'react-sidebar';
+import Navbar from '../components/Navbar/Navbar';
+import Canvas from '../components/Canvas/Canvas';
+import SidebarContent from '../components/SideBar/SidebarContent';
 
-class App extends Component {
+class App extends React.Component {
+
   render() {
+    const sidebarProps = {
+      sidebar: (<SidebarContent />),
+      docked: true,
+      shadow: false
+    };
+
     return (
-      <div>
-        <NavbarComp/>
-        <Grid>
-          <DragulaComp/>
-        </Grid>
-      </div>
+      <Sidebar {...sidebarProps}>
+        <Navbar title="Talana"/>
+        <Canvas/>
+      </Sidebar>
     );
   }
 }
