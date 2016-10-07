@@ -1,6 +1,6 @@
 'use strict';
 
-var dragula = require('dragula');
+var dragula = require('./dragula-fabian');
 var atoa = require('atoa');
 
 function reactDragula () {
