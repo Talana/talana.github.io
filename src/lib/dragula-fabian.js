@@ -156,7 +156,6 @@ function dragula (initialContainers, options) {
       return;
     }
     if (isContainer(item)) {
-      console.log("asdfasd");
       // return; // don't drag container itself
     }
     var handle = item;

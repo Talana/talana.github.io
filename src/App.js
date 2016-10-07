@@ -1,10 +1,9 @@
 import React from 'react';
 import Sidebar from 'react-sidebar';
-// import Dragula from 'react-dragula';
-import Dragula from '../fabianDragula';
-import Navbar from '../components/Navbar/Navbar';
-import Canvas from '../components/Canvas/Canvas';
-import SidebarContent from '../components/SideBar/SidebarContent';
+import Dragula from './lib/Dragula';
+import Navbar from './components/Navbar/Navbar';
+import Canvas from './components/Canvas/Canvas';
+import SidebarContent from './components/SideBar/SidebarContent';
 
 class App extends React.Component {
 
@@ -17,7 +16,7 @@ class App extends React.Component {
     };
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log('updated!!');
+
   }
   componentDidMount() {
 
