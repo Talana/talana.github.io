@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import DraggableElement from '../Draggable/DraggableElement';
-import SideBarElement from './SideBarElement/SideBarElement';
+import Draggable from '../Draggable/Draggable';
 import './sidebar.css';
 
 class SidebarContent extends React.Component {
@@ -11,9 +10,9 @@ class SidebarContent extends React.Component {
       <div>
         <Navbar/>
         <div id="sidebarDraggableArea" className="content draggableContent">
-          <DraggableElement allowCopy={true} type="row"/>
+          <Draggable allowCopy={true} type="row"/>
           <div className="divider"/>
-          <DraggableElement allowCopy={true} type="component"/>
+          <Draggable allowCopy={true} type="component"/>
         </div>
       </div>
     );

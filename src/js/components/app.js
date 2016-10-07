@@ -1,14 +1,14 @@
 import React from 'react';
 import Sidebar from 'react-sidebar';
-import Dragula from './lib/Dragula';
-import Navbar from './components/Navbar/Navbar';
-import Canvas from './components/Canvas/Canvas';
-import SidebarContent from './components/SideBar/SidebarContent';
+import Navbar from './Navbar/Navbar';
+import Canvas from './Canvas/Canvas';
+import SidebarContent from './SideBar/SidebarContent';
 
 class App extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.dragula = props.dragula;
     this.drake = {};
     this.state = {
       hello: 0,
@@ -16,7 +16,7 @@ class App extends React.Component {
     };
   }
   componentDidUpdate(prevProps, prevState) {
-
+    console.log('updated!!');
   }
   componentDidMount() {
 
@@ -36,7 +36,7 @@ class App extends React.Component {
       removeOnSpill: true
     };
     var [sidebar, canvas] = [document.getElementById('sidebarDraggableArea'), document.getElementById('canvasDraggableArea')];
-    this.drake = Dragula([sidebar, canvas], options)
+    this.drake = this.dragula([sidebar, canvas], options)
     .on('drop', (el, target, source, sibling) => {
       this.setState({hello: this.state.hello + 1})
       if(source === document.getElementById('sidebarDraggableArea')) {
