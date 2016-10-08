@@ -15,8 +15,10 @@ class Canvas extends React.Component {
     }
 
   render() {
+
     let lanas = this.state.lanas.map(lana => {
-        return <Draggable allowCopy={true} type="row" lana={lana}/>
+        console.log(`${lana.size}`)
+        return <Draggable key={lana.id} allowCopy={true} type="row" lana={lana}/>
     })
     return (
       <div className="content">

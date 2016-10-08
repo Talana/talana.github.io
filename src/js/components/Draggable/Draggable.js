@@ -25,11 +25,12 @@ import AppActions from '../../actions/actions';
 // export default Draggable;
 
 const Draggable = (props) => {
+
   return (
     <Col xs={props.lana.size}
-    onClick={AppActions.addLana.bind(null, 'this is the row!!')}
+    onClick={AppActions.addLana.bind(null, props.lana)}
     data-type={props.lana.type}
-    className={props.classNames}>
+    className={props.classNames + ' draggable'}>
     {props.lana.title}
     </Col>
   );
