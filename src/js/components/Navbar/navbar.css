@@ -1,10 +1,10 @@
 .myNavbar {
-    font-weight: 300
+    height: 46px;
+    background-color: #2893FC;
 }
 
-.myNavbar .myNavbar-brand {
-    background-color: #2893FC;
+.myNavbar .myNavbar-brand p,
+.myNavbar .container {
     color: white;
-    height: 46px;
-    font-size: 1.5em;
+    height: 100%;
 }

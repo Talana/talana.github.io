@@ -78,10 +78,16 @@
 }
 
 .draggable {
-  background: #FD6CB3;
+  background: #fff;
+  color: #959595;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 .dropped {
   background: #fff;
 }
+
+.sidebar-draggable p {
+    margin: 0px;
+}
+

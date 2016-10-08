@@ -16,9 +16,8 @@ class SideBar extends React.Component {
         };
         return (
             <Col xs={6} sm={2} smPull={1} id="sidebarDraggableArea" className="content draggableContent">
-                <Draggable allowCopy={true} lana={sideBarLana('row')} type="row"/>
-                <div className="divider"/>
-                <Draggable allowCopy={true} lana={sideBarLana('component')} type="component"/>
+                <Draggable allowCopy={true} lana={sideBarLana('row')} type="row" className="sidebar-draggable"/>
+                <Draggable allowCopy={true} lana={sideBarLana('component')} type="component" className="sidebar-draggable"/>
             </Col>
         );
     }

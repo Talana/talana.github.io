@@ -5,7 +5,7 @@ import AppActions from '../../actions/actions';
 
 const Draggable = (props) => {
 
-    const classNames = (props.allowCopy) ? ' allow_copy' : '';
+    const classNames = props.className + ((props.allowCopy) ? ' allow_copy' : '');
 
     return (
         <Col xs={props.lana.size}
@@ -13,7 +13,7 @@ const Draggable = (props) => {
         data-type={props.lana.type}
         data-lana={JSON.stringify(props.lana)}
         className={classNames + '  draggable'}>
-        {props.lana.title}
+            <p className="text-center">{props.lana.title}</p>
         </Col>
     );
 }
