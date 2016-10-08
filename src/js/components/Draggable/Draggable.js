@@ -3,34 +3,15 @@ import { Col } from 'react-bootstrap';
 import './draggable.css';
 import AppActions from '../../actions/actions';
 
-// export class Draggable extends React.Component {
-
-//   render () {
-//     let sizeMapper = {
-//       component: 12,
-//       row: 12
-//   };
-
-//   let label = this.props.type;
-//   let size = sizeMapper[this.props.type];
-//   var classNames = "draggable"
-//   classNames += this.props.allowCopy ? ' allow_copy' : '';
-
-//   return (
-
-//       );
-//   }
-// };
-
-// export default Draggable;
-
 const Draggable = (props) => {
+
+  const classNames = (props.allowCopy) ? ' allow_copy' : '';
 
   return (
     <Col xs={props.lana.size}
     onClick={AppActions.addLana.bind(null, props.lana)}
     data-type={props.lana.type}
-    className={props.classNames + ' draggable'}>
+    className={classNames + '  draggable'}>
     {props.lana.title}
     </Col>
   );
