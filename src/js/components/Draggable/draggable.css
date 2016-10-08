@@ -46,8 +46,7 @@
 }
 
 .draggableContent:nth-child(odd) {
-  /* border: 1px #ff9900; */
-  background-color: rgba(0, 0, 0, 0.2);
+  // background-color: rgba(0, 0, 0, 0.2);
 }
 
 .draggableContent .draggable,
@@ -75,10 +74,14 @@
 }
 
 .draggableContent.ex-over {
-  background-color: rgba(255, 255, 255, 0.3);
+  // background-color: rgba(255, 255, 255, 0.3);
 }
 
 .draggable {
-  background: #ff9900;
+  background: #FD6CB3;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.dropped {
+  background: #fff;
 }

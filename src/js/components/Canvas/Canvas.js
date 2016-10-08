@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import AppStore from '../../stores/app-store';
 import Draggable from '../Draggable/Draggable';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
@@ -11,18 +11,16 @@ const lanas = () => {
 
 const Canvas = (props) => {
 
-  let lanas = props.lanas.map(lana => {
-      return <Draggable key={lana.id} allowCopy={true} type="row" lana={lana}/>
-  })
-  return (
-    <div className="content">
-      <Grid>
-        <div id="canvasDraggableArea" className="row draggableContent">
-          {lanas}
+    let lanas = props.lanas.map(lana => {
+        return <Draggable key={lana.id} type="row" lana={lana}/>
+    })
+    return (
+        <div className="content">
+          <Col xs={12} sm={9} id="canvasDraggableArea" className="row draggableContent">
+              {lanas}
+          </Col>
         </div>
-      </Grid>
-    </div>
-  );
+    );
 }
 
 export default StoreWatchMixin(Canvas, lanas);

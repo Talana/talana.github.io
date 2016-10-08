@@ -1,72 +1,80 @@
 import React from 'react';
-import Sidebar from 'react-sidebar';
 import Navbar from './Navbar/Navbar';
 import Canvas from './Canvas/Canvas';
-import SidebarContent from './SideBar/SidebarContent';
+import SideBar from './SideBar/Sidebar';
+import AppStore from '../stores/app-store';
+import AppActions from '../actions/actions';
+import { Grid, Row } from 'react-bootstrap';
 
+import Drake from '../constants/dragula-option-constants';
+
+const lanas = () => {
+    return { lanas: AppStore.getLanas() }
+}
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.dragula = props.dragula;
-    this.drake = {};
-    this.state = {
-      hello: 0,
-      drake: {}
-    };
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log('updated!!');
-  }
-  componentDidMount() {
+    constructor() {
+        super();
+        this.state = lanas();
+        this._onChange = this._onChange.bind(this);
+    }
 
-    let options = {
-      copy: function(el, source) {
-        if (el.classList.contains("allow_copy")) {
-          return true;
-        }
-      },
-      moves: function(el, container, handle) {
-        return el.classList.contains('draggableContent') || el.classList.contains('draggable');
-      },
-      accepts: function(el, target, source, sibling) {
-        return target.classList.contains("draggableContent") && target !== document.getElementById('sidebarDraggableArea');
-      },
-      direction: 'vertical',
-      removeOnSpill: true
-    };
-    var [sidebar, canvas] = [document.getElementById('sidebarDraggableArea'), document.getElementById('canvasDraggableArea')];
-    this.drake = this.dragula([sidebar, canvas], options)
-    .on('drop', (el, target, source, sibling) => {
-      this.setState({hello: this.state.hello + 1})
-      if(source === document.getElementById('sidebarDraggableArea')) {
-        el.className = el.className.replace('allow_copy','');
-        if(el.getAttribute('data-type') === 'component') {
-          el.className = el.className.replace('col-xs-12','col-xs-2');
+    componentWillMount() {
+        AppStore.addChangeListener(this._onChange);
+    }
+
+    componentWillUnmount() {
+        AppStore.removeChangeListener(this._onChange);
+    }
+    _onChange() {
+        this.setState(lanas);
+    }
+
+    componentDidMount() {
+
+        Drake.containers = [
+            document.getElementById('sidebarDraggableArea'),
+            document.getElementById('canvasDraggableArea')
+        ];
+
+        Drake.on('drop', this.dropLana);
+
+        this.drake = Drake
+    }
+
+    dropLana(el, target, source, sibiling) {
+        if(target !== document.getElementById('sidebarDraggableArea')) {
+            let lana = JSON.parse(el.getAttribute('data-lana'));
+            AppActions.addLana.bind(el, lana);
+
+            el.className = el.className.replace('allow_copy','');
+            if(el.getAttribute('data-type') === 'component') {
+                el.className = el.className.replace('col-xs-12','col-xs-2');
+            } else {
+                el.className += ' draggableContent';
+                Drake.containers.push(el);
+            }
+            el.className += ' dropped';
         } else {
-          // el.className = el.className.replace('col-xs-12','col-xs-12');
-          el.className += ' draggableContent';
-          this.drake.containers.push(el);
+            console.log('asdffasdf');
         }
-      }
-    });
+    }
 
-  }
 
-  render() {
-    const sidebarProps = {
-      sidebar: (<SidebarContent dragula={this.drake}/>),
-      docked: true,
-      shadow: false
-    };
+    render() {
 
-    return (
-      <Sidebar {...sidebarProps} ref="items">
-        <Navbar title="Talana"/>
-        <Canvas state={this.state} dragula={this.drake}/>
-      </Sidebar>
-    );
-  }
+        return (
+            <div>
+                <Navbar title="Talana"/>
+                <Grid>
+                    <Row>
+                        <SideBar dragula={this.drake}/>
+                        <Canvas state={this.state} dragula={this.drake}/>
+                    </Row>
+                </Grid>
+            </div>
+        );
+    }
 }
 
 export default App;
