@@ -47,19 +47,31 @@ class App extends React.Component {
             let lana = JSON.parse(el.getAttribute('data-lana'));
             AppActions.addLana.bind(el, lana);
 
+            while (el.hasChildNodes() && !el.className.includes('draggableContent')) {
+                el.removeChild(el.lastChild);
+            }
+
             el.className = el.className.replace('allow_copy','');
+
             if(el.getAttribute('data-type') === 'component') {
                 el.className = el.className.replace('col-xs-12','col-xs-2');
             } else {
-                el.className += ' draggableContent';
+                if (!el.className.includes('draggableContent')) {
+                    el.className += ' draggableContent';
+                }
+
+                //TODO: Change col count to have row and column on same row
                 Drake.containers.push(el);
             }
-            el.className += ' dropped';
+
+            if (!el.className.includes('dropped')) {
+                el.className += ' dropped';
+            }
+
         } else {
             console.log('asdffasdf');
         }
     }
-
 
     render() {
 
