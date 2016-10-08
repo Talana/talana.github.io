@@ -1,5 +1,3 @@
-'use strict';
-
 var dragula = require('./dragula-fabian');
 var atoa = require('atoa');
 

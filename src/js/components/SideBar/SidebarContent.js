@@ -1,19 +1,26 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import DraggableElement from '../Draggable/DraggableElement';
-import SideBarElement from './SideBarElement/SideBarElement';
+import Draggable from '../Draggable/Draggable';
 import './sidebar.css';
 
 class SidebarContent extends React.Component {
 
   render() {
+    const sideBarLana = (type) => {
+      return {
+       id: `Comp ${(type === 'row') ? 1 : 2}`,
+       title: type,
+       size: 12,
+       'type': type
+   };
+    };
     return (
       <div>
         <Navbar/>
         <div id="sidebarDraggableArea" className="content draggableContent">
-          <DraggableElement allowCopy={true} type="row"/>
+          <Draggable allowCopy={true} lana={sideBarLana('row')} type="row"/>
           <div className="divider"/>
-          <DraggableElement allowCopy={true} type="component"/>
+          <Draggable allowCopy={true} lana={sideBarLana('component')} type="component"/>
         </div>
       </div>
     );
