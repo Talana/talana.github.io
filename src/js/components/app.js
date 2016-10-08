@@ -45,6 +45,9 @@ class App extends React.Component {
     dropLana(el, target, source, sibiling) {
         if(target !== document.getElementById('sidebarDraggableArea')) {
             let lana = JSON.parse(el.getAttribute('data-lana'));
+
+            // Look for lana with same id
+            // then add that lana
             AppActions.addLana.bind(el, lana);
 
             while (el.hasChildNodes() && !el.className.includes('draggableContent')) {
