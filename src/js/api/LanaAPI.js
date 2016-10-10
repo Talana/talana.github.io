@@ -1,4 +1,4 @@
-const LanaAPI = {
+ const LanaAPI = {
 
     lanas: [],
 
@@ -7,12 +7,17 @@ const LanaAPI = {
     },
 
     findLana: (lana) => {
-        return LanaAPI.lanas.findIndex(_lana => _lana.id === lana.id);
+        return LanaAPI.lanas.findIndex(_lana => +_lana.id === +lana.id);
+    },
+
+    findLanaWithId: (id) => {
+        let idx = LanaAPI.lanas.findIndex(_lana => +_lana.id === +id);
+        return LanaAPI.lanas[idx];
     },
 
     addLana: (lana) => {
         const _lana = LanaAPI.findLana(lana);
-        if(!_lana) {
+        if(_lana === -1) {
             LanaAPI.lanas.push(Object.assign({size: 1}, lana));
         }
     },

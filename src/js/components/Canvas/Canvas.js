@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import AppStore from '../../stores/app-store';
-import Draggable from '../Draggable/Draggable';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import './canvas.css';
 
@@ -10,14 +9,14 @@ const lanas = () => {
 }
 
 const Canvas = (props) => {
-
-    let lanas = props.lanas.map(lana => {
-        return <Draggable key={lana.id} type="row" lana={lana}/>
-    })
+    const canvasStyle = {
+        padding: 16,
+        minHeight: 200,
+        backgroundColor: 'rgba(0, 0, 0, 0.05)'
+    }
     return (
         <div className="content">
-          <Col xs={12} sm={9} id="canvasDraggableArea" className="row draggableContent">
-              {lanas}
+          <Col xs={12} sm={9} id="canvasDraggableArea" className="row draggableContent canvasArea" style={canvasStyle}>
           </Col>
         </div>
     );

@@ -2,7 +2,7 @@
   padding: 16px;
 }
 
-#canvasDraggableArea {
+.canvasArea {
     min-height: 200px;
     background-color: rgba(0, 0, 0, 0.2);
 }
