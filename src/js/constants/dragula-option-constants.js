@@ -2,7 +2,6 @@ import Dragula from '../../lib/Dragula';
 import AppActions from '../actions/actions';
 import LanaAPI from '../api/LanaAPI';
 import Lana from '../models/Lana';
-import AppStore from '../stores/app-store';
 
 let options = {
     copy: function(el, source) {
@@ -81,14 +80,11 @@ DragulaConst
             }
             // if it's an exisiting Lana, then:
             /// find existing lana in Store
-            let foundLana = LanaAPI.findLanaWithId(target.dataId); // todo: move this to store
+            let foundLana = LanaAPI.findLanaWithId(target.dataId);
             console.log(`foundLana = ${foundLana}`);
             foundLana.addChild(createdLana)
 
         }
-
-
-
 
         // Remove <p> tag of element to make it look cleaner
         // Make sure the element is not `draggableContent` aka `Row`
@@ -104,6 +100,7 @@ DragulaConst
             DragulaConst.containers.push(el);
         }
 
+        console.log(LanaAPI.lanas);
     }
 });
 export default DragulaConst;

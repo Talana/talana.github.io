@@ -19,7 +19,6 @@ const AppStore = Object.assign(EventEmitter.prototype, {
         return LanaAPI.getLanas();
     },
     dispatcherIndex: register(function(action) {
-        console.log(LanaAPI.getLanas());
         switch(action.actionType) {
             case AppConstants.ADD_LANA:
                 LanaAPI.addLana(action.lana);
