@@ -5,8 +5,8 @@ import './sidebar.css';
 import Lana from '../../models/Lana';
 
 class SideBar extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.Lana = Lana;
         this.rowObj = Lana('row');
         this.componentObj = Lana('component');
@@ -14,8 +14,8 @@ class SideBar extends React.Component {
     render() {
         return (
             <Col xs={6} sm={2} smPull={1} id="sidebarDraggableArea" className="content draggableContent">
-                <Draggable allowCopy={true} lana={this.rowObj} type="row" className="sidebar-draggable"/>
-                <Draggable allowCopy={true} lana={this.componentObj} type="component" className="sidebar-draggable"/>
+                <Draggable allowCopy={true} openModal={this.props.openModal} lana={this.rowObj} type="row" className="sidebar-draggable"/>
+                <Draggable allowCopy={true} openModal={this.props.openModal} lana={this.componentObj} type="component" className="sidebar-draggable"/>
             </Col>
         );
     }

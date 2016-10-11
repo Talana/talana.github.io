@@ -2,18 +2,20 @@ import React from 'react';
 import Navbar from './Navbar/Navbar';
 import Canvas from './Canvas/Canvas';
 import SideBar from './SideBar/Sidebar';
+import MyModal from './Modal/Modal';
 import AppStore from '../stores/app-store';
+import AppActions from '../actions/actions';
 import { Grid, Row } from 'react-bootstrap';
 import Drake from '../constants/dragula-option-constants';
 
-const lanas = () => {
-    return { lanas: AppStore.getLanas() }
+const state = () => {
+    return AppStore.store
 }
 class App extends React.Component {
 
     constructor() {
         super();
-        this.state = lanas();
+        this.state = state();
         this._onChange = this._onChange.bind(this);
     }
 
@@ -24,8 +26,17 @@ class App extends React.Component {
     componentWillUnmount() {
         AppStore.removeChangeListener(this._onChange);
     }
+
     _onChange() {
-        this.setState(lanas);
+        this.setState(state);
+    }
+
+    close() {
+        AppActions.hideModal();
+    }
+
+    open() {
+        AppActions.showModal();
     }
 
     componentDidMount() {
@@ -39,13 +50,13 @@ class App extends React.Component {
     }
 
     render() {
-
         return (
             <div>
                 <Navbar title="Talana"/>
                 <Grid>
                     <Row>
-                        <SideBar dragula={this.drake}/>
+                        <MyModal showModal={this.state.isShowingModal} closeModal={this.close.bind(this)}/>
+                        <SideBar dragula={this.drake} openModal={this.open.bind(this)}/>
                         <Canvas state={this.state} dragula={this.drake}/>
                     </Row>
                 </Grid>

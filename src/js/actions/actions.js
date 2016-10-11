@@ -13,5 +13,17 @@ export default {
         dispatch({
             actionType: AppConstants.REMOVE_LANA, lana
         });
+    },
+
+    showModal() {
+        dispatch({
+            actionType: AppConstants.SHOW_MODAL
+        });
+    },
+
+    hideModal() {
+        dispatch({
+            actionType: AppConstants.HIDE_MODAL
+        });
     }
 }

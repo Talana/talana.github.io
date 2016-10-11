@@ -5,7 +5,7 @@ import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import './canvas.css';
 
 const lanas = () => {
-    return { lanas: AppStore.getLanas() }
+    return { lanas: AppStore.store.lanas }
 }
 
 const Canvas = (props) => {

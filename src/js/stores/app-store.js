@@ -15,17 +15,31 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     removeChangeListener(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     },
-    getLanas() {
-        return LanaAPI.getLanas();
+    store: {
+        lanas:LanaAPI.getLanas(),
+        isShowingModal: false
     },
     dispatcherIndex: register(function(action) {
         switch(action.actionType) {
-            case AppConstants.ADD_LANA:
+            case AppConstants.ADD_LANA: {
                 LanaAPI.addLana(action.lana);
                 break;
-            case AppConstants.REMOVE_LANA:
+            }
+
+            case AppConstants.REMOVE_LANA: {
                 LanaAPI.removeLana(action.lana);
                 break;
+            }
+
+            case AppConstants.SHOW_MODAL: {
+                AppStore.store.isShowingModal = true;
+                break;
+            }
+            case AppConstants.HIDE_MODAL: {
+                AppStore.store.isShowingModal = false;
+                break;
+            }
+
             default: break;
         }
 
