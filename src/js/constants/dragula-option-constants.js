@@ -68,7 +68,7 @@ DragulaConst
         let elementType = el.dataType,
             createdLana = Lana(elementType);
 
-        el.setAttribute('data-id', createdLana.id)
+        el.setAttribute('data-id', 0)
         // See if target is the canvas or an existing Lana
         if(target.className.includes('canvasArea')) {
             // if it's the canvas, then:

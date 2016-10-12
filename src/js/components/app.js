@@ -31,11 +31,11 @@ class App extends React.Component {
         this.setState(state);
     }
 
-    close() {
+    closeModal() {
         AppActions.hideModal();
     }
 
-    open() {
+    openModal() {
         AppActions.showModal();
     }
 
@@ -55,9 +55,16 @@ class App extends React.Component {
                 <Navbar title="Talana"/>
                 <Grid>
                     <Row>
-                        <MyModal showModal={this.state.isShowingModal} closeModal={this.close.bind(this)}/>
-                        <SideBar dragula={this.drake} openModal={this.open.bind(this)}/>
-                        <Canvas state={this.state} dragula={this.drake}/>
+                        <MyModal
+                            showModal={this.state.isShowingModal}
+                            closeModal={this.closeModal.bind(this)}/>
+                        <SideBar
+                            dragula={this.drake}
+                            openModal={this.openModal.bind(this)}/>
+                        <Canvas
+                            lanas={this.state.lanas}
+                            openModal={this.openModal.bind(this)}
+                            dragula={this.drake}/>
                     </Row>
                 </Grid>
             </div>

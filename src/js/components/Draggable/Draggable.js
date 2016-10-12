@@ -1,25 +1,51 @@
 import * as React from "react";
 import { Col } from 'react-bootstrap';
 import './draggable.css';
-import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import AppStore from '../../stores/app-store';
 
-const lanas = () => {
+const state = () => {
     return AppStore.store
 }
 
-const Draggable = (props) => {
+export default class Draggable extends React.Component {
 
-    const classNames = props.className + ((props.allowCopy) ? ' allow_copy' : '');
-    return (
-        <Col xs={12}
-        data-type={props.type}
-        data-id={props.lana.id}
-        onClick={props.openModal}
-        className={classNames + ' draggable'}>
-            <p className="text-center">{props.lana.id}</p>
-        </Col>
-        );
+    constructor(props) {
+        super(props);
+        this.state = state();
+        this._onChange = this._onChange.bind(this);
+    }
+
+    componentWillMount() {
+        AppStore.addChangeListener(this._onChange);
+    }
+
+    componentWillUnmount() {
+        AppStore.removeChangeListener(this._onChange);
+    }
+
+    _onChange() {
+        this.setState(state);
+    }
+
+    didClick() {
+        console.log('asdfas')
+    }
+
+    handleClick() {
+        console.log('clicking!!!');
+    }
+    render() {
+        const classNames = this.props.className + ((this.props.allowCopy) ? ' allow_copy' : '');
+        return (
+            <div ref={`draggable-${this.props.lana.id}`} className={'col-xs-12 ' + classNames + ' draggable'}
+                data-type={this.props.type}
+                data-id={this.props.lana.id}
+                onClick={this.handleClick}>
+                    <p className="text-center">{this.props.lana.id}</p>
+            </div>
+
+            );
+    }
 }
 
 Draggable.propTypes = {
@@ -33,4 +59,3 @@ Draggable.defaultProps = {
     type: 'component'
 };
 
-export default StoreWatchMixin(Draggable, lanas);

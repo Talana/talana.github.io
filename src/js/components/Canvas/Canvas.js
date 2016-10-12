@@ -4,8 +4,8 @@ import AppStore from '../../stores/app-store';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import './canvas.css';
 
-const lanas = () => {
-    return { lanas: AppStore.store.lanas }
+const store = () => {
+    return { lanas: AppStore.store }
 }
 
 const Canvas = (props) => {
@@ -22,4 +22,4 @@ const Canvas = (props) => {
     );
 }
 
-export default StoreWatchMixin(Canvas, lanas);
+export default StoreWatchMixin(Canvas, store);
